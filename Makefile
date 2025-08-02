@@ -1,4 +1,4 @@
 run :
-	@docker-compose -f config/compose.yml -p deploy up --build -d 
+	@docker-compose -f config/compose.yml -p n8n up --build -d 
 stop :
-	@docker-compose -f config/compose.yml -p deploy down  --remove-orphans
+	@docker-compose -f config/compose.yml -p n8n down  --remove-orphans
