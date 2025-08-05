@@ -9,7 +9,7 @@
       git:
         repo: "{{ repo_url }}"
         dest: "{{ repo_dir }}"
-        version: master
+        version: main
         update: yes
         force: yes
 
