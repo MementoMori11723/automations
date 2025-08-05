@@ -1,7 +1,7 @@
 ---
 - hosts: vps
   vars:
-    repo_dir: "{{ ansible_env.HOME }}/dark-web"
+    repo_dir: "{{ ansible_env.HOME }}/automations-n8n"
     repo_url: "https://github.com/MementoMori11723/automations-n8n.git"
 
   tasks:
