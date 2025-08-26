@@ -3,16 +3,70 @@ services:
     image: docker.n8n.io/n8nio/n8n
     container_name: n8n
     expose:
-      - "5678"
+      - "80"
+    ports:
+      - "80:80"
     environment:
       - N8N_HOST=n8n.yasasvi.site
-      - N8N_PORT=5678
+      - N8N_PORT=80
       - N8N_PROTOCOL=https
       - WEBHOOK_TUNNEL_URL=https://n8n.yasasvi.site
+    volumes:
+      - n8n_data:/home/node/.n8n
     restart: always
     networks:
       - deploy_net
 
+  excalidraw:
+    image: excalidraw/excalidraw
+    container_name: excalidraw
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - deploy_net
+
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    restart: unless-stopped
+    expose:
+      - "8384"
+    networks:
+      - deploy_net
+
+  reverse-proxy:
+    image: nginx:stable-alpine
+    container_name: reverse-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    deploy:
+      resources:
+        limits:
+          cpus: "0.01"
+          memory: 30M
+    networks:
+      - deploy_net
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-ai
+    expose:
+      - "11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - deploy_net
+    entrypoint: ["/bin/bash", "-c"]
+    command: "ollama serve & sleep 5 && ollama pull smollm:135m && wait"
+
 networks:
   deploy_net:
     external: true
+
+volumes:
+  ollama_data:
+  n8n_data:
