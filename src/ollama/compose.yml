@@ -1,0 +1,19 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-ai
+    expose:
+      - "11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - deploy_net
+    entrypoint: ["/bin/bash", "-c"]
+    command: "ollama serve & sleep 5 && ollama pull smollm:135m && wait"
+
+networks:
+  deploy_net:
+    external: true
+
+volumes:
+  ollama_data:

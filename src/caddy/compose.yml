@@ -1,0 +1,23 @@
+services:
+  caddy:
+    image: caddy
+    container_name: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    networks:
+      - caddy_network
+      - taiga
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  deploy_net:
+    external: true

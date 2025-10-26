@@ -1,0 +1,23 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: n8n-app
+    expose:
+      - "80"
+    environment:
+      N8N_HOST: "${N8N_HOST}"
+      N8N_PORT: "${N8N_PORT}"
+      N8N_PROTOCOL: "${N8N_PROTOCOL}"
+      WEBHOOK_TUNNEL_URL: "${WEBHOOK_TUNNEL_URL}"
+    volumes:
+      - n8n_data:/home/node/.n8n
+    restart: always
+    networks:
+      - deploy_net
+
+networks:
+  deploy_net:
+    external: true
+
+volumes:
+  n8n_data:
