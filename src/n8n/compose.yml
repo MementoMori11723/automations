@@ -1,6 +1,6 @@
 services:
   n8n:
-    image: n8nio/n8n:2.0.0-rc.4
+    image: docker.n8n.io/n8nio/n8n
     container_name: n8n-app
     expose:
       - "80"
