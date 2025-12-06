@@ -19,5 +19,7 @@ volumes:
   caddy_config:
 
 networks:
-  deploy_net:
+  caddy_network:
+    external: true
+  taiga:
     external: true
