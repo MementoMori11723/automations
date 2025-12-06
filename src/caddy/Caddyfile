@@ -1,48 +1,16 @@
 {
-	email contact@yasasvi.site
+	email mementomori11723@duet.ink
 	acme_ca https://acme-v02.api.letsencrypt.org/directory
 }
 
-yasasvi.site {
-  reverse_proxy yasasvi-site:11000
-}
-
-n8n.yasasvi.site {
+n8n.duet.ink {
   reverse_proxy n8n-app:80
 }
 
-dark-web.yasasvi.site {
-  reverse_proxy dark-web:80
+docmost.duet.ink {
+  reverse_proxy docmost
 }
 
-c-http.site, c-http.yasasvi.site {
-  reverse_proxy c-http:8000
-}
-
-blood-transmutation.yasasvi.site {
-  reverse_proxy blood-app:8000
-}
-
-medical-assistent.yasasvi.site {
-  reverse_proxy medical-app:5000
-}
-
-tweet-analyser.yasasvi.site {
-  reverse_proxy analyser:8000
-}
-
-simple-chat.yasasvi.site {
-  reverse_proxy chat-app:11000
-}
-
-echo-flow.xyz, echo-flow.yasasvi.site {
-  reverse_proxy echo_flow:5000
-}
-
-bank-app.yasasvi.site {
-  reverse_proxy bank-app:8001
-}
-
-api-bank-app.yasasvi.site {
-  reverse_proxy bank-app:11001
+taiga.duet.ink {
+  reverse_proxy taiga
 }
