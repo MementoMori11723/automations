@@ -7,4 +7,4 @@
 # Copyright (c) 2021-present Kaleidos INC
 
 set -x
-exec docker compose -f compose.yml -f compose-inits.yml run --rm taiga-manage $@
+exec docker-compose -f compose.yml -f compose-inits.yml run --rm taiga-manage $@
