@@ -3,4 +3,4 @@ run :
 admin:
 	@./manage.sh createsuperuser
 stop :
-	@docker-compose -f compose.yml down --remove-orphans
+	@docker compose -f compose.yml down --remove-orphans
