@@ -1,4 +1,4 @@
-SERVICES := docmost n8n docmost taiga caddy
+SERVICES := docmost n8n docmost caddy
 SRC_DIR := src
 
 run:

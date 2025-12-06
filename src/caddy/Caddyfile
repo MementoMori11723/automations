@@ -10,7 +10,3 @@ n8n.duet.ink {
 docmost.duet.ink {
   reverse_proxy docmost:3000
 }
-
-taiga.duet.ink {
-  reverse_proxy taiga:80
-}
