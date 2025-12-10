@@ -1,4 +1,4 @@
 run :
-	@docker-compose -f compose.yml -p docmost up --build -d 
+	@docker stack deploy -c compose.yml docmost 
 stop :
-	@docker-compose -f compose.yml -p docmost down --remove-orphans
+	@docker stack rm docmost

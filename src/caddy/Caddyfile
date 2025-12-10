@@ -1,12 +1,24 @@
 {
-	email mementomori11723@duet.ink
+	email mementomori11723@localhost
 	acme_ca https://acme-v02.api.letsencrypt.org/directory
 }
 
-n8n.duet.ink {
+n8n.localhost {
   reverse_proxy n8n-app:80
 }
 
-docmost.duet.ink {
-  reverse_proxy docmost:3000
+docmost.localhost {
+  reverse_proxy docmost-app:80
+}
+
+excalidraw.localhost {
+  reverse_proxy excalidraw:80
+}
+
+focal-board.localhost {
+  reverse_proxy focal-board:8000
+}
+
+uptime-kuma.localhost {
+  reverse_proxy uptime-kuma:80
 }

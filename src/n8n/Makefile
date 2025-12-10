@@ -1,4 +1,4 @@
 run :
-	@docker-compose -f compose.yml -p automation up --build -d 
+	@docker stack deploy -c compose.yml n8n 
 stop :
-	@docker-compose -f compose.yml -p automation down --remove-orphans
+	@docker stack rm n8n

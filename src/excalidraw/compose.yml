@@ -1,0 +1,13 @@
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    expose:
+      - "80"
+    deploy:
+      replicas: 1
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,19 @@
+services:
+  focalboard:
+    image: mattermost/focalboard
+    expose:
+      - "8000"
+    restart: unless-stopped
+    volumes:
+      - focalboad_data:/opt/focalboard/data 
+    deploy:
+      replicas: 1
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  focalboard_data:

@@ -1,4 +1,4 @@
-SERVICES := docmost n8n docmost caddy
+SERVICES := n8n uptime-kuma focalboard excalidraw docmost caddy
 SRC_DIR := src
 
 run:
