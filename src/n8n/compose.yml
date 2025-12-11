@@ -1,15 +1,15 @@
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n
-    expose:
-      - "80"
-    env_file:
-      - ../.env
     volumes:
       - n8n_data:/home/node/.n8n
     deploy:
       replicas: 1
-    restart: unless-stopped
+    environment:
+      - N8N_HOST=n8n.duet.ink
+      - N8N_PORT=80
+      - N8N_PROTOCOL=https
+      - WEBHOOK_TUNNEL_URL=https://n8n.duet.ink
     networks:
       - proxy
 
