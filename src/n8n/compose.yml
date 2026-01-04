@@ -5,7 +5,7 @@ services:
       - n8n_data:/home/node/.n8n
     environment:
       - N8N_HOST=n8n.yasasvi.site
-      - N8N_PORT=80
+      - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - WEBHOOK_TUNNEL_URL=https://n8n.yasasvi.site
       - N8N_PROXY_HOPS=1
@@ -13,6 +13,8 @@ services:
       - N8N_SECURE_COOKIE=false
     networks:
       - proxy
+    ports:
+      - "5678:5678"
     deploy:
       replicas: 1
       resources:

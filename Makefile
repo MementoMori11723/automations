@@ -1,4 +1,4 @@
-SERVICES := n8n docmost dozzle redis postgresql caddy
+SERVICES := n8n docmost dozzle redis postgresql
 SRC_DIR := src
 
 run:
