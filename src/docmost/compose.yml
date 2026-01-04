@@ -1,0 +1,25 @@
+services:
+  docmost:
+    image: docmost/docmost:latest
+    environment:
+      APP_URL: "https://docmost.yasasvi.site"
+      APP_SECRET: "V03rNN2g9BBdrWdEqRNzdUDbeQJqe9cNanwL71jA1Jjc+i318hrrOA=="
+      DATABASE_URL: "postgresql://postgres:password@postgres:5432/docmost?schema=public"
+      REDIS_URL: "redis://redis:6379"
+      PUID: "1000"
+      PGID: "1000"
+    networks:
+      - proxy
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+        reservations:
+          cpus: "0.1"
+          memory: 64M
+
+networks:
+  proxy:
+    external: true
