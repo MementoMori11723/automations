@@ -7,8 +7,8 @@ services:
       - N8N_HOST=n8n.yasasvi.site
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
-      - WEBHOOK_TUNNEL_URL=https://n8n.yasasvi.site
-      - N8N_EDITOR_BASE_URL=https://n8n.yasasvi.site
+      - WEBHOOK_URL=https://n8n.yasasvi.site/
+      - N8N_EDITOR_BASE_URL=https://n8n.yasasvi.site/
       - N8N_PROXY_HOPS=1
       - N8N_SSL_PROXIED=true
       - N8N_SECURE_COOKIE=false
