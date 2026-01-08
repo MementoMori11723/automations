@@ -12,6 +12,7 @@ services:
       - N8N_PROXY_HOPS=1
       - N8N_SSL_PROXIED=true
       - N8N_SECURE_COOKIE=false
+      - GENERIC_TIMEZONE=Asia/Kolkata
     networks:
       - proxy
     ports:
