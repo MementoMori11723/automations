@@ -11,8 +11,9 @@ services:
       - N8N_EDITOR_BASE_URL=https://n8n.yasasvi.site/
       - N8N_PROXY_HOPS=1
       - N8N_SSL_PROXIED=true
-      - N8N_SECURE_COOKIE=false
+      - N8N_SECURE_COOKIE=true
       - GENERIC_TIMEZONE=Asia/Kolkata
+      - N8N_METRICS_ENABLED=true
     networks:
       - proxy
     ports:
