@@ -14,6 +14,12 @@ services:
       - N8N_SECURE_COOKIE=true
       - GENERIC_TIMEZONE=Asia/Kolkata
       - N8N_METRICS_ENABLED=true
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=48
+      - EXECUTIONS_DATA_PRUNE_MAX_COUNT=1000
+      - DB_SQLITE_VACUUM_ON_STARTUP=true
+      - EXECUTIONS_DATA_SAVE_ON_ERROR=all
+      - EXECUTIONS_DATA_SAVE_ON_SUCCESS=none
     networks:
       - proxy
     ports:
