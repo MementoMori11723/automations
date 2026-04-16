@@ -31,6 +31,7 @@ services:
       - N8N_SMTP_SENDER="n8n <>"
       - N8N_SMTP_SECURE=false
       - N8N_SMTP_STARTTLS=true
+      - N8N_SMTP_SSL=false
     networks:
       - proxy
     ports:
