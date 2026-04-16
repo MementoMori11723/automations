@@ -23,6 +23,14 @@ services:
       - N8N_BLOCK_JS_PYTHON_SOLUTION_ERRORS=false
       - N8N_RUNNERS_MODE=internal
       - N8N_NATIVE_PYTHON_RUNNER=false
+      - N8N_EMAIL_MODE=smtp
+      - N8N_SMTP_HOST=smtp.gmail.com
+      - N8N_SMTP_PORT=587
+      - N8N_SMTP_USER=""
+      - N8N_SMTP_PASS=""
+      - N8N_SMTP_SENDER="n8n <>"
+      - N8N_SMTP_SECURE=false
+      - N8N_SMTP_STARTTLS=true
     networks:
       - proxy
     ports:
