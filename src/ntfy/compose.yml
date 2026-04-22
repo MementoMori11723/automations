@@ -1,0 +1,51 @@
+services:
+  ntfy:
+    image: binwiederhier/ntfy
+    command:
+      - serve
+    environment:
+      - TZ=Asia/Kolkata
+      # Authentication Settings
+      - NTFY_BASE_URL=https://ntfy.yasasvi.dev
+      - NTFY_AUTH_FILE=/var/lib/ntfy/user.db
+      - NTFY_AUTH_DEFAULT_ACCESS=deny-all
+      # Recommended: Enable attachment and cache support
+      - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy
+      - NTFY_ENABLE_LOGIN=true
+    volumes:
+      - ntfy_data:/var/lib/ntfy
+      - ntfy_cache:/var/cache/ntfy
+    networks:
+      - proxy
+    ports:
+      - "8080:80"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q --tries=1 http://localhost:80/v1/health -O - | grep -Eo '\"healthy\"\\s*:\\s*true' || exit 1",
+        ]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.1"
+          memory: 128M
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  ntfy_data:
+  ntfy_cache:
